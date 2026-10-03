@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://inventory.doaide.com/sitemap.xml

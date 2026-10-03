@@ -54,3 +54,99 @@ body {
 * {
   box-sizing: border-box;
 }
+
+/* ── Tool pages ─────────────────────────────────────── */
+.tool-page { min-height: 100vh; background: var(--bg-primary); }
+.tool-main { max-width: 720px; margin: 0 auto; padding: 2rem 1rem; }
+.tool-container { display: flex; flex-direction: column; gap: 2rem; }
+.tool-title { font-size: 2rem; font-weight: 800; color: var(--text-primary); margin: 0; }
+.tool-subtitle { color: var(--text-secondary); margin: 0; line-height: 1.6; }
+
+/* ── Tools nav ──────────────────────────────────────── */
+.tools-nav { display: flex; align-items: center; gap: 1rem; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); background: var(--bg-primary); flex-wrap: wrap; }
+.tools-nav-brand { font-weight: 700; color: #F0B429; text-decoration: none; font-size: 1rem; white-space: nowrap; }
+.tools-nav-links { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.tools-nav-link { text-decoration: none; font-size: 0.85rem; padding: 0.35rem 0.75rem; border-radius: 6px; color: var(--text-secondary); transition: background 0.15s; }
+.tools-nav-link:hover, .tools-nav-link.active { background: var(--bg-tertiary); color: var(--text-primary); }
+.tools-nav-cta { margin-left: auto; font-size: 0.85rem; padding: 0.4rem 1rem; background: #F0B429; color: #0A0A0B; border-radius: 6px; font-weight: 600; text-decoration: none; white-space: nowrap; }
+
+/* ── Calculator card ────────────────────────────────── */
+.calc-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; }
+.calc-label { display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.9rem; font-weight: 500; color: var(--text-primary); }
+.calc-input { padding: 0.65rem 0.85rem; border: 1px solid var(--border); border-radius: 8px; font-size: 1rem; background: var(--bg-primary); color: var(--text-primary); outline: none; }
+.calc-input:focus { border-color: #F0B429; box-shadow: 0 0 0 3px rgba(240,180,41,0.15); }
+.calc-result { display: flex; flex-direction: column; gap: 0.5rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+.calc-row { display: flex; justify-content: space-between; font-size: 0.9rem; color: var(--text-secondary); padding: 0.3rem 0; }
+.calc-row span:last-child { font-weight: 600; color: var(--text-primary); }
+.calc-highlight { background: rgba(240,180,41,0.08); margin: 0 -0.5rem; padding: 0.6rem 0.5rem; border-radius: 8px; }
+.calc-highlight span:last-child { color: #F0B429; font-size: 1.1rem; }
+.calc-note { font-size: 0.85rem; color: var(--text-muted); margin: 0.5rem 0 0; }
+
+/* ── Share buttons ──────────────────────────────────── */
+.share-buttons { display: flex; align-items: center; gap: 0.75rem; padding-top: 0.75rem; }
+.share-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+.share-buttons a, .share-copy-btn { color: var(--text-secondary); transition: color 0.15s; cursor: pointer; background: none; border: none; padding: 0; }
+.share-buttons a:hover, .share-copy-btn:hover { color: #F0B429; }
+.share-copied { font-size: 0.8rem; color: #F0B429; font-weight: 600; }
+
+/* ── Embed page ─────────────────────────────────────── */
+.embed-tools { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.embed-tool-btn { flex: 1; min-width: 200px; text-align: left; padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-primary); cursor: pointer; transition: border-color 0.15s; color: var(--text-primary); }
+.embed-tool-btn strong { display: block; font-size: 0.9rem; }
+.embed-tool-btn span { font-size: 0.8rem; color: var(--text-secondary); }
+.embed-tool-btn.active { border-color: #F0B429; background: rgba(240,180,41,0.05); }
+.embed-code { background: var(--bg-tertiary); padding: 1rem; border-radius: 8px; font-size: 0.8rem; overflow-x: auto; white-space: pre-wrap; word-break: break-all; color: var(--text-primary); }
+
+/* ── Templates ──────────────────────────────────────── */
+.template-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.template-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 1.25rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.template-card h3 { font-size: 1rem; font-weight: 700; margin: 0; color: var(--text-primary); }
+.template-card p { font-size: 0.85rem; color: var(--text-secondary); margin: 0; line-height: 1.5; }
+.template-preview { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.5rem; }
+.template-col { font-size: 0.7rem; background: var(--bg-tertiary); padding: 0.2rem 0.5rem; border-radius: 4px; color: var(--text-secondary); }
+.template-more { font-style: italic; }
+.template-copy-btn { margin-top: auto; }
+
+/* ── Scanner preview ────────────────────────────────── */
+.scanner-preview { display: flex; justify-content: center; padding: 1rem; background: #fff; border-radius: 8px; }
+.scanner-preview svg { max-width: 100%; height: auto; }
+
+/* ── Blog ───────────────────────────────────────────── */
+.blog-layout { max-width: 720px; margin: 0 auto; padding: 2rem 1rem; }
+.blog-header { margin-bottom: 2rem; }
+.blog-home-link { font-size: 0.85rem; color: #F0B429; text-decoration: none; }
+.blog-title { font-size: 1.75rem; font-weight: 800; color: var(--text-primary); margin: 0.5rem 0 0; }
+.blog-subtitle { color: var(--text-secondary); margin: 0.25rem 0 0; }
+.blog-index { display: flex; flex-direction: column; gap: 1rem; }
+.blog-card { text-decoration: none; padding: 1.25rem; border: 1px solid var(--card-border); border-radius: 12px; background: var(--card-bg); transition: border-color 0.15s; }
+.blog-card:hover { border-color: #F0B429; }
+.blog-card h2 { font-size: 1.1rem; margin: 0 0 0.35rem; color: var(--text-primary); }
+.blog-card p { font-size: 0.85rem; color: var(--text-secondary); margin: 0; line-height: 1.5; }
+.blog-read-more { font-size: 0.8rem; color: #F0B429; font-weight: 600; }
+.blog-article { line-height: 1.7; color: var(--text-primary); }
+.blog-article h1 { font-size: 1.75rem; font-weight: 800; margin-bottom: 1rem; }
+.blog-article h2 { font-size: 1.3rem; font-weight: 700; margin-top: 2rem; }
+.blog-article h3 { font-size: 1.1rem; font-weight: 600; margin-top: 1.5rem; }
+.blog-article p { color: var(--text-secondary); margin: 0.75rem 0; }
+.blog-article ul, .blog-article ol { color: var(--text-secondary); padding-left: 1.5rem; }
+.blog-article li { margin-bottom: 0.35rem; }
+.blog-article a { color: #F0B429; }
+.blog-back { font-size: 0.85rem; color: #F0B429; text-decoration: none; display: inline-block; margin-bottom: 1rem; }
+
+/* ── Tool info section ──────────────────────────────── */
+.tool-info { line-height: 1.7; }
+.tool-info h2 { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem; }
+.tool-info h3 { font-size: 1.05rem; font-weight: 600; color: var(--text-primary); margin-top: 1.25rem; }
+.tool-info p { color: var(--text-secondary); margin: 0.5rem 0; }
+.tool-info ul { padding-left: 1.25rem; color: var(--text-secondary); }
+.tool-info li { margin-bottom: 0.35rem; }
+
+/* ── Buttons ────────────────────────────────────────── */
+.btn { padding: 0.6rem 1.25rem; border: none; border-radius: 8px; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: background 0.15s; }
+.btn-primary { background: #F0B429; color: #0A0A0B; }
+.btn-primary:hover { background: #D4A017; }
+
+/* ── Landing referral & tool cards ──────────────────── */
+.landing-referral { padding: 3rem 1rem; background: var(--bg-secondary); }
+.landing-tool-card { display: block; padding: 1.5rem; border: 1px solid var(--card-border); border-radius: 12px; background: var(--card-bg); text-decoration: none; transition: border-color 0.15s; }
+.landing-tool-card:hover { border-color: #F0B429; }

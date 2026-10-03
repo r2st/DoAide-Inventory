@@ -4,18 +4,26 @@ import Shell from "./components/Shell";
 import { useAuth } from "./hooks/useAuth";
 import AlertsPage from "./pages/AlertsPage";
 import AuthPage from "./pages/AuthPage";
+import BlogLayout, { BlogIndex } from "./pages/BlogLayout";
+import CalculatorPage from "./pages/CalculatorPage";
 import CategoriesPage from "./pages/CategoriesPage";
 import CustomersPage from "./pages/CustomersPage";
 import DashboardPage from "./pages/DashboardPage";
+import EmbedPage from "./pages/EmbedPage";
 import LandingPage from "./pages/LandingPage";
 import PricingPage from "./pages/PricingPage";
 import ProductsPage from "./pages/ProductsPage";
 import PurchaseOrdersPage from "./pages/PurchaseOrdersPage";
 import ReportsPage from "./pages/ReportsPage";
 import SalesOrdersPage from "./pages/SalesOrdersPage";
+import ScannerPage from "./pages/ScannerPage";
 import SettingsPage from "./pages/SettingsPage";
 import StockPage from "./pages/StockPage";
 import SuppliersPage from "./pages/SuppliersPage";
+import TemplatesPage from "./pages/TemplatesPage";
+import BarcodeGuide from "./pages/blog/BarcodeGuide";
+import InventoryMethodsGuide from "./pages/blog/InventoryMethodsGuide";
+import ReorderPointGuide from "./pages/blog/ReorderPointGuide";
 
 function Protected({ children }) {
   const { user, loading } = useAuth();
@@ -37,6 +45,16 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/auth" element={<AuthPage />} />
         <Route path="/pricing" element={<PricingPage />} />
+        <Route path="/calculator" element={<CalculatorPage />} />
+        <Route path="/scanner" element={<ScannerPage />} />
+        <Route path="/templates" element={<TemplatesPage />} />
+        <Route path="/embed" element={<EmbedPage />} />
+        <Route path="/blog" element={<BlogLayout />}>
+          <Route index element={<BlogIndex />} />
+          <Route path="reorder-point-formula-explained" element={<ReorderPointGuide />} />
+          <Route path="barcode-systems-small-business" element={<BarcodeGuide />} />
+          <Route path="inventory-management-methods-compared" element={<InventoryMethodsGuide />} />
+        </Route>
         <Route path="/dashboard" element={<Protected><DashboardPage /></Protected>} />
         <Route path="/products" element={<Protected><ProductsPage /></Protected>} />
         <Route path="/categories" element={<Protected><CategoriesPage /></Protected>} />

@@ -1,0 +1,50 @@
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { MemoryRouter } from "react-router-dom";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import ShareButtons from "../components/ShareButtons";
+
+vi.mock("../lib/share", () => ({
+  fullUrl: (p) => `http://localhost${p}`,
+  whatsappUrl: (text, url) => `https://wa.me/?text=${encodeURIComponent(`${text} ${url}`)}`,
+  twitterUrl: (text, url) => `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`,
+  copyToClipboard: vi.fn(),
+}));
+
+const mockTrack = vi.fn();
+vi.mock("../lib/track", () => ({ track: (...args) => mockTrack(...args) }));
+
+import { copyToClipboard } from "../lib/share";
+
+function renderShare(props = {}) {
+  return render(
+    <MemoryRouter>
+      <ShareButtons path="/calculator" text="Check this out" {...props} />
+    </MemoryRouter>,
+  );
+}
+
+describe("ShareButtons", () => {
+  afterEach(() => vi.restoreAllMocks());
+
+  it("renders WhatsApp, Twitter and Copy link actions", () => {
+    renderShare();
+    expect(screen.getByLabelText("Share on WhatsApp")).toBeInTheDocument();
+    expect(screen.getByLabelText("Share on Twitter")).toBeInTheDocument();
+    expect(screen.getByLabelText("Copy link")).toBeInTheDocument();
+  });
+
+  it("shows Copied! after clicking copy", async () => {
+    copyToClipboard.mockResolvedValue(true);
+    renderShare();
+    await userEvent.click(screen.getByLabelText("Copy link"));
+    expect(copyToClipboard).toHaveBeenCalledWith("http://localhost/calculator");
+    expect(screen.getByText("Copied!")).toBeInTheDocument();
+  });
+
+  it("fires share tracking events", async () => {
+    renderShare();
+    await userEvent.click(screen.getByLabelText("Share on WhatsApp"));
+    expect(mockTrack).toHaveBeenCalledWith("share_whatsapp");
+  });
+});

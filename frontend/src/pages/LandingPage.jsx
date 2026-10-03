@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { copyToClipboard, fullUrl } from "../lib/share";
 
 const DOAIDE_PRODUCTS = [
   { name: "Proposals", url: "https://proposals.doaide.com" },
@@ -129,6 +130,33 @@ const FAQ_ITEMS = [
   { q: "Can I create purchase and sales orders?", a: "Yes. Pro plans include full purchase order management with supplier tracking and sales order processing with fulfillment tracking." },
   { q: "Does it integrate with accounting software?", a: "Enterprise plans include API access for integration with accounting tools, e-commerce platforms, and other business software." },
 ];
+
+const FREE_TOOLS = [
+  { path: "/calculator", title: "Reorder Point Calculator", desc: "Calculate when to reorder stock based on usage, lead time, and safety stock." },
+  { path: "/scanner", title: "Barcode & QR Generator", desc: "Generate barcodes and QR codes for your products. Download as SVG." },
+  { path: "/templates", title: "Inventory Templates", desc: "Free spreadsheet templates for warehouse, retail, restaurant, and more." },
+];
+
+function ReferralBanner() {
+  const [copied, setCopied] = useState(false);
+  return (
+    <section className="landing-referral">
+      <div className="max-w-3xl mx-auto text-center">
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Share & Help Others</h2>
+        <p className="text-gray-600 dark:text-gray-400 mb-4">Know someone who manages inventory? Share DoAide Inventory with them.</p>
+        <button
+          onClick={async () => {
+            const ok = await copyToClipboard(fullUrl("/"));
+            if (ok) { setCopied(true); setTimeout(() => setCopied(false), 2000); }
+          }}
+          className="px-6 py-2.5 bg-[#F0B429] text-[#0A0A0B] font-semibold rounded-lg hover:bg-[#D4A017] transition-colors"
+        >
+          {copied ? "Link Copied!" : "Copy Share Link"}
+        </button>
+      </div>
+    </section>
+  );
+}
 
 function FaqSection() {
   const [openIndex, setOpenIndex] = useState(null);
@@ -288,7 +316,25 @@ export default function LandingPage() {
           </div>
         </section>
 
+        <section className="py-20 px-4 sm:px-6 bg-gray-50 dark:bg-[#111113]" aria-labelledby="tools-heading">
+          <div className="max-w-5xl mx-auto">
+            <h2 id="tools-heading" className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-4">Free Inventory Tools</h2>
+            <p className="text-gray-600 dark:text-gray-400 text-center mb-14">No sign-up required. Use these tools right now, completely free.</p>
+            <div className="grid md:grid-cols-3 gap-8">
+              {FREE_TOOLS.map((t) => (
+                <Link key={t.path} to={t.path} className="landing-tool-card">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{t.title}</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">{t.desc}</p>
+                  <span className="text-[#F0B429] text-sm font-medium mt-3 inline-block">Try it free &rarr;</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <FaqSection />
+
+        <ReferralBanner />
 
         <section className="py-20 px-4 sm:px-6 text-center bg-gray-50 dark:bg-[#111113]">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Ready to Take Control of Your Inventory?</h2>
@@ -303,6 +349,15 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
             <div>
+              <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-3">Free Tools</h4>
+              <div className="space-y-2 text-sm">
+                <Link to="/calculator" className="block text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline">Reorder Calculator</Link>
+                <Link to="/scanner" className="block text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline">Barcode Generator</Link>
+                <Link to="/templates" className="block text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline">Inventory Templates</Link>
+                <Link to="/embed" className="block text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline">Embed Widget</Link>
+              </div>
+            </div>
+            <div>
               <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-3">Product</h4>
               <div className="space-y-2 text-sm">
                 <Link to="/pricing" className="block text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline">Pricing</Link>
@@ -311,18 +366,18 @@ export default function LandingPage() {
               </div>
             </div>
             <div>
+              <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-3">Resources</h4>
+              <div className="space-y-2 text-sm">
+                <Link to="/blog" className="block text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline">Blog</Link>
+                <Link to="/blog/reorder-point-formula-explained" className="block text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline">Reorder Point Guide</Link>
+                <Link to="/blog/barcode-systems-small-business" className="block text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline">Barcode Guide</Link>
+              </div>
+            </div>
+            <div>
               <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-3">Company</h4>
               <div className="space-y-2 text-sm">
                 <a href="https://doaide.com" className="block text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline">About DoAide</a>
                 <a href="mailto:support@doaide.com" className="block text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline">Contact</a>
-              </div>
-            </div>
-            <div className="col-span-2">
-              <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-3">DoAide Products</h4>
-              <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm">
-                {DOAIDE_PRODUCTS.map((p) => (
-                  <a key={p.name} href={p.url} className="text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline">{p.name}</a>
-                ))}
               </div>
             </div>
           </div>
