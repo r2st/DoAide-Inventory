@@ -16,6 +16,16 @@ const ARTICLES = [
     title: "FIFO, LIFO, and Weighted Average — Inventory Methods Compared",
     description: "Compare inventory valuation methods. Learn when to use FIFO, LIFO, or weighted average cost for your business.",
   },
+  {
+    slug: "abc-analysis-inventory-management",
+    title: "ABC Analysis in Inventory Management — The Complete Guide",
+    description: "Apply the Pareto principle to classify inventory by value. Learn how to prioritize stock with ABC analysis and set category-specific policies.",
+  },
+  {
+    slug: "inventory-turnover-ratio-guide",
+    title: "Inventory Turnover Ratio — How to Calculate and Improve It",
+    description: "Measure stock efficiency with the inventory turnover ratio. Includes benchmarks by industry, GMROI calculation, and improvement strategies.",
+  },
 ];
 
 export { ARTICLES };

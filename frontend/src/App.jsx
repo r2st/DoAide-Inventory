@@ -24,6 +24,15 @@ import TemplatesPage from "./pages/TemplatesPage";
 import BarcodeGuide from "./pages/blog/BarcodeGuide";
 import InventoryMethodsGuide from "./pages/blog/InventoryMethodsGuide";
 import ReorderPointGuide from "./pages/blog/ReorderPointGuide";
+import ToolsIndexPage from "./pages/ToolsIndexPage";
+import SafetyStockPage from "./pages/SafetyStockPage";
+import EoqCalculatorPage from "./pages/EoqCalculatorPage";
+import StockLevelCalculatorPage from "./pages/StockLevelCalculatorPage";
+import ReorderPointCalcPage from "./pages/ReorderPointCalcPage";
+import AbcAnalysisPage from "./pages/AbcAnalysisPage";
+import InventoryTurnoverPage from "./pages/InventoryTurnoverPage";
+import AbcAnalysisGuide from "./pages/blog/AbcAnalysisGuide";
+import InventoryTurnoverGuide from "./pages/blog/InventoryTurnoverGuide";
 
 function Protected({ children }) {
   const { user, loading } = useAuth();
@@ -49,11 +58,20 @@ export default function App() {
         <Route path="/scanner" element={<ScannerPage />} />
         <Route path="/templates" element={<TemplatesPage />} />
         <Route path="/embed" element={<EmbedPage />} />
+        <Route path="/tools" element={<ToolsIndexPage />} />
+        <Route path="/tools/safety-stock" element={<SafetyStockPage />} />
+        <Route path="/tools/eoq" element={<EoqCalculatorPage />} />
+        <Route path="/tools/stock-level" element={<StockLevelCalculatorPage />} />
+        <Route path="/tools/reorder-point" element={<ReorderPointCalcPage />} />
+        <Route path="/tools/abc-analysis" element={<AbcAnalysisPage />} />
+        <Route path="/tools/inventory-turnover" element={<InventoryTurnoverPage />} />
         <Route path="/blog" element={<BlogLayout />}>
           <Route index element={<BlogIndex />} />
           <Route path="reorder-point-formula-explained" element={<ReorderPointGuide />} />
           <Route path="barcode-systems-small-business" element={<BarcodeGuide />} />
           <Route path="inventory-management-methods-compared" element={<InventoryMethodsGuide />} />
+          <Route path="abc-analysis-inventory-management" element={<AbcAnalysisGuide />} />
+          <Route path="inventory-turnover-ratio-guide" element={<InventoryTurnoverGuide />} />
         </Route>
         <Route path="/dashboard" element={<Protected><DashboardPage /></Protected>} />
         <Route path="/products" element={<Protected><ProductsPage /></Protected>} />

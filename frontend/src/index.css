@@ -82,6 +82,14 @@ body {
 .calc-highlight span:last-child { color: #F0B429; font-size: 1.1rem; }
 .calc-note { font-size: 0.85rem; color: var(--text-muted); margin: 0.5rem 0 0; }
 
+/* ── Tools index grid ─────────────────────────────────── */
+.tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+.tool-card { display: flex; flex-direction: column; gap: 0.25rem; padding: 1.25rem; border: 1px solid var(--card-border); border-radius: 12px; text-decoration: none; color: var(--text-primary); transition: border-color 0.15s, transform 0.15s; background: var(--card-bg); }
+.tool-card:hover { border-color: #F0B429; transform: translateY(-2px); }
+.tool-card-icon { font-size: 1.75rem; }
+.tool-card-title { font-size: 1rem; font-weight: 600; margin: 0; }
+.tool-card-desc { font-size: 0.82rem; color: var(--text-secondary); margin: 0; }
+
 /* ── Share buttons ──────────────────────────────────── */
 .share-buttons { display: flex; align-items: center; gap: 0.75rem; padding-top: 0.75rem; }
 .share-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }

@@ -133,7 +133,10 @@ const FAQ_ITEMS = [
 
 const FREE_TOOLS = [
   { path: "/calculator", title: "Reorder Point Calculator", desc: "Calculate when to reorder stock based on usage, lead time, and safety stock." },
+  { path: "/tools/abc-analysis", title: "ABC Analysis Tool", desc: "Classify inventory by value using Pareto analysis. Prioritize high-value items." },
+  { path: "/tools/inventory-turnover", title: "Inventory Turnover Calculator", desc: "Measure stock efficiency with turnover ratio, DSI, and GMROI." },
   { path: "/scanner", title: "Barcode & QR Generator", desc: "Generate barcodes and QR codes for your products. Download as SVG." },
+  { path: "/tools/stock-level", title: "Stock Level Calculator", desc: "Analyze current stock and find optimal min/max inventory levels." },
   { path: "/templates", title: "Inventory Templates", desc: "Free spreadsheet templates for warehouse, retail, restaurant, and more." },
 ];
 
@@ -352,9 +355,10 @@ export default function LandingPage() {
               <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-3">Free Tools</h4>
               <div className="space-y-2 text-sm">
                 <Link to="/calculator" className="block text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline">Reorder Calculator</Link>
+                <Link to="/tools/abc-analysis" className="block text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline">ABC Analysis</Link>
+                <Link to="/tools/inventory-turnover" className="block text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline">Turnover Calculator</Link>
                 <Link to="/scanner" className="block text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline">Barcode Generator</Link>
-                <Link to="/templates" className="block text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline">Inventory Templates</Link>
-                <Link to="/embed" className="block text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline">Embed Widget</Link>
+                <Link to="/tools" className="block text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline">All Free Tools</Link>
               </div>
             </div>
             <div>
@@ -370,7 +374,8 @@ export default function LandingPage() {
               <div className="space-y-2 text-sm">
                 <Link to="/blog" className="block text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline">Blog</Link>
                 <Link to="/blog/reorder-point-formula-explained" className="block text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline">Reorder Point Guide</Link>
-                <Link to="/blog/barcode-systems-small-business" className="block text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline">Barcode Guide</Link>
+                <Link to="/blog/abc-analysis-inventory-management" className="block text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline">ABC Analysis Guide</Link>
+                <Link to="/blog/inventory-turnover-ratio-guide" className="block text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline">Turnover Ratio Guide</Link>
               </div>
             </div>
             <div>

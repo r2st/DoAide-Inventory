@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 import { BlogIndex } from "../pages/BlogLayout";
 
 describe("BlogIndex", () => {
-  it("renders all 3 article cards", () => {
+  it("renders all article cards", () => {
     render(
       <MemoryRouter>
         <BlogIndex />
@@ -13,6 +13,8 @@ describe("BlogIndex", () => {
     expect(screen.getByText(/Reorder Point Formula/)).toBeInTheDocument();
     expect(screen.getByText(/Barcode Systems/)).toBeInTheDocument();
     expect(screen.getAllByText(/FIFO, LIFO/).length).toBeGreaterThan(0);
+    expect(screen.getByText(/ABC Analysis in Inventory/)).toBeInTheDocument();
+    expect(screen.getByText(/Inventory Turnover Ratio/)).toBeInTheDocument();
   });
 
   it("renders read more links", () => {
@@ -22,6 +24,6 @@ describe("BlogIndex", () => {
       </MemoryRouter>,
     );
     const links = screen.getAllByText(/Read more/);
-    expect(links).toHaveLength(3);
+    expect(links).toHaveLength(5);
   });
 });
