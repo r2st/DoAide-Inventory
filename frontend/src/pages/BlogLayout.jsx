@@ -26,6 +26,21 @@ const ARTICLES = [
     title: "Inventory Turnover Ratio — How to Calculate and Improve It",
     description: "Measure stock efficiency with the inventory turnover ratio. Includes benchmarks by industry, GMROI calculation, and improvement strategies.",
   },
+  {
+    slug: "stock-management-small-business-india",
+    title: "Stock Management for Small Businesses in India — Complete Guide",
+    description: "Practical stock management strategies for Indian small businesses. Covers manual vs digital tracking, demand forecasting, supplier management, and common mistakes to avoid.",
+  },
+  {
+    slug: "gst-inventory-management-guide",
+    title: "GST Inventory Management — Compliance Guide for Indian Businesses",
+    description: "Manage inventory under India's GST regime. Covers stock registers, HSN codes, input tax credit on stock, e-way bills, and audit-ready record keeping.",
+  },
+  {
+    slug: "warehouse-management-small-business",
+    title: "Warehouse Management for Small Businesses — Optimise Your Godown",
+    description: "Practical warehouse and godown management strategies. Covers layout planning, bin location systems, stock rotation, picking efficiency, and low-cost warehouse technology.",
+  },
 ];
 
 export { ARTICLES };

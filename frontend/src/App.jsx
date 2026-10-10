@@ -33,6 +33,9 @@ import AbcAnalysisPage from "./pages/AbcAnalysisPage";
 import InventoryTurnoverPage from "./pages/InventoryTurnoverPage";
 import AbcAnalysisGuide from "./pages/blog/AbcAnalysisGuide";
 import InventoryTurnoverGuide from "./pages/blog/InventoryTurnoverGuide";
+import StockManagementIndiaGuide from "./pages/blog/StockManagementIndiaGuide";
+import GstInventoryGuide from "./pages/blog/GstInventoryGuide";
+import WarehouseManagementGuide from "./pages/blog/WarehouseManagementGuide";
 
 function Protected({ children }) {
   const { user, loading } = useAuth();
@@ -72,6 +75,9 @@ export default function App() {
           <Route path="inventory-management-methods-compared" element={<InventoryMethodsGuide />} />
           <Route path="abc-analysis-inventory-management" element={<AbcAnalysisGuide />} />
           <Route path="inventory-turnover-ratio-guide" element={<InventoryTurnoverGuide />} />
+          <Route path="stock-management-small-business-india" element={<StockManagementIndiaGuide />} />
+          <Route path="gst-inventory-management-guide" element={<GstInventoryGuide />} />
+          <Route path="warehouse-management-small-business" element={<WarehouseManagementGuide />} />
         </Route>
         <Route path="/dashboard" element={<Protected><DashboardPage /></Protected>} />
         <Route path="/products" element={<Protected><ProductsPage /></Protected>} />

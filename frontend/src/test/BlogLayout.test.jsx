@@ -15,6 +15,9 @@ describe("BlogIndex", () => {
     expect(screen.getAllByText(/FIFO, LIFO/).length).toBeGreaterThan(0);
     expect(screen.getByText(/ABC Analysis in Inventory/)).toBeInTheDocument();
     expect(screen.getByText(/Inventory Turnover Ratio/)).toBeInTheDocument();
+    expect(screen.getByText(/Stock Management for Small Businesses in India/)).toBeInTheDocument();
+    expect(screen.getByText(/GST Inventory Management/)).toBeInTheDocument();
+    expect(screen.getByText(/Warehouse Management for Small Businesses/)).toBeInTheDocument();
   });
 
   it("renders read more links", () => {
@@ -24,6 +27,6 @@ describe("BlogIndex", () => {
       </MemoryRouter>,
     );
     const links = screen.getAllByText(/Read more/);
-    expect(links).toHaveLength(5);
+    expect(links).toHaveLength(8);
   });
 });
